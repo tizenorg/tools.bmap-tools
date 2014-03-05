@@ -71,7 +71,7 @@ faster with bmaptool than with traditional tools like "dd" or "cp".
 %install
 rm -rf %{buildroot}
 
-python setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}/%{_mandir}/man1
 install -m644 docs/man1/bmaptool.1 %{buildroot}/%{_mandir}/man1
