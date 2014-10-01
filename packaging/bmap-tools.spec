@@ -5,12 +5,7 @@
 Name: bmap-tools
 Summary: Tools to generate block map (AKA bmap) and flash images using bmap
 Version: 3.2
-
-%if 0%{?opensuse_bs}
-Release: %{rc_str}.<CI_CNT>.<B_CNT>
-%else
-Release: %{rc_str}.0.0
-%endif
+Release: 0
 
 Group: Development/Tools/Other
 License: GPL-2.0
@@ -21,6 +16,7 @@ Source0: %{name}_%{version}.tar.gz
 Requires: bzip2
 Requires: pbzip2
 Requires: gzip
+Requires: python-xml
 Requires: xz
 Requires: tar
 %if ! 0%{?tizen_version:1}
@@ -72,8 +68,6 @@ faster with bmaptool than with traditional tools like "dd" or "cp".
 %build
 
 %install
-rm -rf %{buildroot}
-
 python setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}/%{_mandir}/man1
@@ -81,6 +75,7 @@ install -m644 docs/man1/bmaptool.1 %{buildroot}/%{_mandir}/man1
 
 %files
 %defattr(-,root,root,-)
+%license COPYING
 %dir /usr/lib/python*/site-packages/bmaptools
 /usr/lib/python*/site-packages/bmap_tools*
 /usr/lib/python*/site-packages/bmaptools/*
@@ -89,4 +84,3 @@ install -m644 docs/man1/bmaptool.1 %{buildroot}/%{_mandir}/man1
 %doc docs/RELEASE_NOTES
 %{_mandir}/man1/*
 
-%changelog
