@@ -1,3 +1,9 @@
+bmap-tools (3.3) unstable; urgency=low
+
+  * Fix rpm dependency issue for Fedora
+
+ -- Li Jinjing <jinjingx.li@intel.com> Wed, 21 Jan 2015 10:56:15 +0800
+
 bmap-tools (3.2) unstable; urgency=low
 
   * Add support for LZO and archives ('.lzo' and '.tar.lzo').
